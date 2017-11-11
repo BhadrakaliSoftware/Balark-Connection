@@ -12,18 +12,21 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.bhadrasoft.balarkconnection.Utils.Constants;
 import com.bhadrasoft.balarkconnection.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
+public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener,
+        DatePickerDialog.OnDateSetListener, DatabaseReference.CompletionListener {
 
     private static final String TAG = RegistrationActivity.class.getSimpleName();
     private FirebaseAuth firebaseAuth;
@@ -82,15 +85,14 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     private void init() {
 
-        //initialze firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
         ButterKnife.bind(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
-            case R.id.activity_registration_btn_register :
+        switch (v.getId()) {
+            case R.id.activity_registration_btn_register:
                 registerUser();
                 break;
             case R.id.activity_registration_layout_dob:
@@ -101,7 +103,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     private void showDatePicker() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this, this,2017, 8 ,7);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, 2017, 8, 7);
             datePickerDialog.show();
         }
     }
@@ -111,24 +113,26 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         String email = txtEmail.getText().toString();
         String password = txtPassword.getText().toString();
 
-        //create the user
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-                            Toast.makeText(RegistrationActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            createUser( task );
-                        }else {
-                            Toast.makeText(RegistrationActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(RegistrationActivity.this, "Registration Error", Toast.LENGTH_LONG).show();
+        } else {
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(RegistrationActivity.this, "Successfully registered", Toast.LENGTH_LONG).show();
+                                createUser(task);
+                            } else {
+                                Toast.makeText(RegistrationActivity.this, "Registration Error", Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 
     private void createUser(Task<AuthResult> task) {
-
-        Log.d(TAG, "createUser: "+task.getResult().getUser().getUid());
+        Log.d(TAG, "createUser: " + task.getResult().getUser().getUid());
 
         //firebase database
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -146,7 +150,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         user.setBirthPlace(txtBirthplace.getText().toString());
         user.setMale(radioMale.isSelected());
 
-        databaseReference.child(task.getResult().getUser().getUid()).setValue(user);
+        databaseReference.child(task.getResult().getUser().getUid()).setValue(user, this);
     }
 
     @Override
@@ -155,4 +159,13 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         this.txtDOB.setText(formattedDate);
     }
 
+    @Override
+    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+        if (databaseError != null) {
+            Toast.makeText(this, databaseError.getMessage(), Toast.LENGTH_SHORT);
+        } else {
+            finish();
+        }
+    }
 }
