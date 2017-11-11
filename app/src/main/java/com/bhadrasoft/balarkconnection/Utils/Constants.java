@@ -1,0 +1,9 @@
+package com.bhadrasoft.balarkconnection.Utils;
+
+/**
+ * Created by riddhi on 11-Nov-17.
+ */
+
+public class Constants {
+    public static final int REQUEST_CODE_REGISTRATION = 01;
+}

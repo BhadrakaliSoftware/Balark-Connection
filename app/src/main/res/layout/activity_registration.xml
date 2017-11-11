@@ -119,15 +119,13 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/male"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/male"/>
 
             <RadioButton android:id="@+id/radio_female"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/female"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/female"/>
         </RadioGroup>
 
         <android.support.design.widget.TextInputLayout
