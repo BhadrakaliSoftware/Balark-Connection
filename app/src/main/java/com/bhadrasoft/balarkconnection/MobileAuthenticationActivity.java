@@ -2,7 +2,6 @@ package com.bhadrasoft.balarkconnection;
 
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,8 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
-import org.w3c.dom.Text;
-
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,9 +31,9 @@ import butterknife.ButterKnife;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class MobileAuthenticationActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = LoginActivity.class.getSimpleName();
+    private static final String TAG = MobileAuthenticationActivity.class.getSimpleName();
     private static final int REQUST_CODE_VERIFICATION = 0;
 
     private static final String KEY_VERIFY_IN_PROGRESS = "key_verify_in_progress";
@@ -87,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_mobile_authentication);
 
         // Set up the login form.
         mLoginFormView = findViewById(R.id.login_form);
