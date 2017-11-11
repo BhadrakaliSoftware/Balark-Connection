@@ -21,5 +21,18 @@
     <string name="resend_code">Resend code</string>
     <string name="instant_validation">(instant validation)</string>
     <string name="country_code">+91</string>
-    <string name="check_valiad_mobile">Valid Mobile Number</string>
+    <string name="check_valiad_mobile">Number</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="hint_first_name">First name</string>
+    <string name="hint_gautra">Gautra</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_middlename">Middle name</string>
+    <string name="hint_lastname">Last name</string>
+    <string name="hint_dob">DOB(DD/MM/YYYY)</string>
+    <string name="hint_pob">Birthplace</string>
+    <string name="registration">Register</string>
+    <string name="hint_password">Password</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>

@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,15 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.bhadrasoft.balarkconnection.LoginActivity">
 
-    <!-- Login progress -->
-
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/login_form"
@@ -29,7 +20,7 @@
         <LinearLayout
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
@@ -117,10 +108,10 @@
 
                     <ImageView
                         android:id="@+id/img_validation"
-                        android:contentDescription="@string/check_valiad_mobile"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
+                        android:contentDescription="@string/check_valiad_mobile"
                         android:src="@mipmap/ic_ok"
                         android:visibility="visible" />
 
@@ -145,8 +136,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="16dp"
                         android:layout_weight="1"
@@ -161,36 +150,80 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-            <Button
-                android:id="@+id/button_continue"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
+            <RelativeLayout
                 android:layout_marginTop="20dp"
                 android:background="@color/orange"
-                android:gravity="center"
-                android:text="@string/next"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button_resend_code"
-                style="?android:textAppearanceSmall"
+                <Button
+                    android:id="@+id/button_continue"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center"
+                    android:background="?selectableItemBackground"
+                    android:text="@string/next"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
                 android:background="@color/orange"
-                android:gravity="center"
-                android:text="@string/resend_code"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="20dp">
 
+                <Button
+                    android:id="@+id/button_resend_code"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center"
+                    android:background="?selectableItemBackground"
+                    android:text="@string/resend_code"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dont_have_account"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:id="@+id/activity_login_tv_create_new_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/orange"
+                    android:text="@string/create_new_account"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+       android:layout_centerInParent="true"/>
+
+</RelativeLayout>

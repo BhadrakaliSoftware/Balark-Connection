@@ -1,6 +1,8 @@
 package com.bhadrasoft.balarkconnection;
 
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+
+import org.w3c.dom.Text;
 
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
@@ -43,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static final int STATE_VERIFY_SUCCESS = 4;
     private static final int STATE_SIGNIN_FAILED = 5;
     private static final int STATE_SIGNIN_SUCCESS = 6;
+    private static final int REQUEST_CODE_REGISTRATION = 7;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -75,6 +80,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.button_resend_code)
     Button btnResendCode;
 
+    @BindView(R.id.activity_login_tv_create_new_account)
+    TextView tvCreateNewAccount;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,8 +91,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Set up the login form.
         mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
-
         ButterKnife.bind(this);
         init();
     }
@@ -192,6 +199,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (user == null) {
             // Signed out
         } else {
+
+            // Siged in user
+            Log.d(TAG, "updateUI: "+ user.getUid());
+
             // Signed in
             enableViews(mPhoneNumberField, mVerificationField);
             mPhoneNumberField.setText(null);
@@ -220,6 +231,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initializeDelegates() {
         mSignInButton.setOnClickListener(this);
+        tvCreateNewAccount.setOnClickListener(this);
     }
 
     private void initializeFirebase() {
@@ -338,7 +350,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.button_continue:
                 continueButtonClicked();
                 break;
+            case R.id.activity_login_tv_create_new_account:
+                gotoRegistrationScreen();
+                break;
         }
+    }
+
+    private void gotoRegistrationScreen() {
+        Intent intent = new Intent(this, RegistrationActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_REGISTRATION);
     }
 
     private void continueButtonClicked() {
