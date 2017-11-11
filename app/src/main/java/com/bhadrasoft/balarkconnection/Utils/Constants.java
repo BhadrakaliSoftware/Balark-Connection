@@ -6,4 +6,5 @@ package com.bhadrasoft.balarkconnection.Utils;
 
 public class Constants {
     public static final int REQUEST_CODE_REGISTRATION = 01;
+    public static final int REQUEST_CODE_PROFILE = 02;
 }
