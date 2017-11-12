@@ -70,4 +70,7 @@
     <string name="hint_height">Height</string>
     <string name="hint_weight">Weight</string>
     <string name="hint_contact">Contact</string>
+    <string name="hint_personal_detail">Personal Detail</string>
+    <string name="hint_birthdate">Birth Date</string>
+    <string name="action_signout">Singout</string>
 </resources>

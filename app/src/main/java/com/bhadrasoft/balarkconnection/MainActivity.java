@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.bhadrasoft.balarkconnection.Utils.Constants;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -72,8 +73,10 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_signout) {
+            FirebaseAuth.getInstance().signOut();
+            finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }else if (id == R.id.nav_profile){
+        } else if (id == R.id.nav_profile) {
             gotoProfile();
         }
 
