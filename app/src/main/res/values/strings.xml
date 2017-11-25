@@ -73,4 +73,11 @@
     <string name="hint_personal_detail">Personal Detail</string>
     <string name="hint_birthdate">Birth Date</string>
     <string name="action_signout">Singout</string>
+    <string name="hint_street">Street</string>
+    <string name="hint_area">Area</string>
+    <string name="hint_city">City</string>
+    <string name="hint_dictrict">District</string>
+    <string name="hint_state">State</string>
+    <string name="hint_country">Country</string>
+    <string name="hint_pincode">Pincode</string>
 </resources>

@@ -95,11 +95,13 @@ public class PersonListFragment extends Fragment implements ValueEventListener, 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
 
+        SwipeRefreshLayout.setRefreshing(false);
+        users.clear();
+
         Gson gson = new Gson();
         JsonElement jsonElement = gson.toJsonTree(dataSnapshot.getValue());
         Log.d(TAG, "onDataChange: " + jsonElement.getAsJsonObject());
 
-        users.clear();
         JSONObject jsonObject = null;
         try {
             jsonObject = new JSONObject(jsonElement.toString());
@@ -120,6 +122,7 @@ public class PersonListFragment extends Fragment implements ValueEventListener, 
 
     @Override
     public void onCancelled(DatabaseError databaseError) {
+        SwipeRefreshLayout.setRefreshing(false);
         Log.d(TAG, "dataset cancelled: ");
     }
 

@@ -71,7 +71,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.activity_edit_profile_button_save)
     Button buttonSave;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,12 +82,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     private void loadUserProfile() {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference userReference = database.getReference().child("users").child(userId);
-
         userReference.addValueEventListener(this);
-
     }
 
     private void initListeners() {
@@ -123,15 +119,15 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         Map<String, Object> userUpdates = new HashMap<>();
         userUpdates.put(User.FIRST_NAME, etFirstName.getText().toString());
-        userUpdates.put(LAST_NAME, etLastName.getText().toString());
-        userUpdates.put(MIDDLE_NAME, etMiddleName.getText().toString());
-        userUpdates.put(GAUTRA, etGautra.getText().toString());
-        userUpdates.put(NATIVE, etNative.getText().toString());
-        userUpdates.put(GENDER, true);
-        userUpdates.put(BIRTH_PLACE, etBirthPlace.getText().toString());
-        userUpdates.put(BLOOD_GROUP, etBloodGroup.getText().toString());
-        userUpdates.put(HEIGHT, etHeight.getText().toString());
-        userUpdates.put(WEIGHT, etWeight.getText().toString());
+        userUpdates.put(User.LAST_NAME, etLastName.getText().toString());
+        userUpdates.put(User.MIDDLE_NAME, etMiddleName.getText().toString());
+        userUpdates.put(User.GAUTRA, etGautra.getText().toString());
+        userUpdates.put(User.NATIVE, etNative.getText().toString());
+        userUpdates.put(User.GENDER, true);
+        userUpdates.put(User.BIRTH_PLACE, etBirthPlace.getText().toString());
+        userUpdates.put(User.BLOOD_GROUP, etBloodGroup.getText().toString());
+        userUpdates.put(User.HEIGHT, etHeight.getText().toString());
+        userUpdates.put(User.WEIGHT, etWeight.getText().toString());
 
         userReference.updateChildren(userUpdates, this);
     }

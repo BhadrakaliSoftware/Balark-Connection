@@ -34,6 +34,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.layout_personal_details_img_edit)
     ImageView imgEditPersonalDetails;
 
+    @BindView(R.id.layout_address_img_edit)
+    ImageView imgEditAddress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,16 +49,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private void loadUserProfile() {
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference userReference = database.getReference().child("users").child(userId);
-
         userReference.addValueEventListener(this);
     }
 
     private void initListeners() {
         tvPersonalDetailHeader.setOnClickListener(this);
         imgEditPersonalDetails.setOnClickListener(this);
+        imgEditAddress.setOnClickListener(this);
     }
 
     private void init() {
@@ -75,7 +77,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.layout_personal_details_img_edit:
                 showEditScreen();
                 break;
+            case R.id.layout_address_img_edit:
+                showEditAddress();
+                break;
         }
+    }
+
+    private void showEditAddress() {
+        Intent intent = new Intent(this, EditAddressActiity.class);
+        startActivityForResult(intent, Constants.REQUEST_CODE_EDIT_ADDRESS);
     }
 
     private void showEditScreen() {
