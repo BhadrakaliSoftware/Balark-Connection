@@ -26,11 +26,11 @@
     <include
         android:id="@+id/layout_family_detail"
         layout="@layout/layout_family_detail"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <include
         android:id="@+id/layout_contact_detail"
         layout="@layout/layout_contact_detail"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
 </LinearLayout>

@@ -25,7 +25,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class PersonListFragment extends Fragment implements ValueEventListener, android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener {
+public class PersonListFragment extends Fragment implements ValueEventListener,
+        android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private static final String TAG = PersonListFragment.class.getSimpleName();

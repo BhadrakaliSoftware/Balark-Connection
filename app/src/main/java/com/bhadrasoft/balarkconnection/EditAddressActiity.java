@@ -91,7 +91,7 @@ public class EditAddressActiity extends AppCompatActivity implements View.OnClic
         userAddress.put(Address.PINCODE, etPincode.getText().toString());
         userAddress.put(Address.STATE, etState.getText().toString());
 
-        addressReference.updateChildren(userAddress, this);
+        addressReference.child(userId).updateChildren(userAddress, this);
     }
 
     @Override

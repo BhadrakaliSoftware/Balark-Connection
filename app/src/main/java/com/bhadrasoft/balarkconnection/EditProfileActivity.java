@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import com.bhadrasoft.balarkconnection.models.User;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,16 +20,6 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.bhadrasoft.balarkconnection.models.User.BIRTH_PLACE;
-import static com.bhadrasoft.balarkconnection.models.User.BLOOD_GROUP;
-import static com.bhadrasoft.balarkconnection.models.User.GAUTRA;
-import static com.bhadrasoft.balarkconnection.models.User.GENDER;
-import static com.bhadrasoft.balarkconnection.models.User.HEIGHT;
-import static com.bhadrasoft.balarkconnection.models.User.LAST_NAME;
-import static com.bhadrasoft.balarkconnection.models.User.MIDDLE_NAME;
-import static com.bhadrasoft.balarkconnection.models.User.NATIVE;
-import static com.bhadrasoft.balarkconnection.models.User.WEIGHT;
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener, DatabaseReference.CompletionListener, ValueEventListener {
 

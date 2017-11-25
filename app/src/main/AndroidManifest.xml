@@ -33,7 +33,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".EditProfileActivity" />
-        <activity android:name=".EditAddressActiity"></activity>
+        <activity android:name=".EditAddressActiity" />
+        <activity android:name=".EditOccupationActivity"></activity>
     </application>
 
 </manifest>
