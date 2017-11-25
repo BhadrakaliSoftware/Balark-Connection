@@ -134,13 +134,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private void createUser(Task<AuthResult> task) {
         Log.d(TAG, "createUser: " + task.getResult().getUser().getUid());
 
-        //firebase database
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference();
-
-        // Add user entry to the database
-        DatabaseReference databaseReference = reference.child("users");
-
         // Create user
         User user = new User();
         user.setUserId(task.getResult().getUser().getUid());
@@ -150,6 +143,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         user.setBirthPlace(txtBirthplace.getText().toString());
         user.setMale(radioMale.isSelected());
 
+        //firebase database
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference();
+
+        // Add user entry to the database
+        DatabaseReference databaseReference = reference.child("users");
         databaseReference.child(task.getResult().getUser().getUid()).setValue(user, this);
     }
 

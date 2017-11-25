@@ -17,6 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_first_name"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -30,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_middlename"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -43,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_lastname"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -56,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_gautra"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -69,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_native"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -103,6 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_birthdate"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -116,6 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_birthPlace"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -129,6 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_blood_group"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -142,6 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_height"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>

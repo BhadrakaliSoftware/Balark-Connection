@@ -159,7 +159,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private void updateUI(User user) {
         this.etFirstName.setText(checkforNull(user.getFirstName()).toString());
         this.etLastName.setText(checkforNull(user.getLastName()).toString());
-        this.etMiddleName.setText(checkforNull(user.getLastName()).toString());
+        this.etMiddleName.setText(checkforNull(user.getMiddleName()).toString());
         this.etBirthPlace.setText(checkforNull(user.getBirthPlace()).toString());
         this.etBloodGroup.setText(checkforNull(user.getBloodGroup()).toString());
         this.etNative.setText(checkforNull(user.getNativePlace()).toString());

@@ -18,19 +18,19 @@ public class User {
     public static final String WEIGHT = "weight";
 
     private String userId;
-    private String firstName;
-    private String lastName;
-    private String middleName;
-    private String gautra;
+    private String firstName = "";
+    private String lastName = "";
+    private String middleName = "";
+    private String gautra = "";
     private boolean isMale;
-    private String birthPlace;
+    private String birthPlace = "";
     private String birthTime;
     private String bloodGroup;
-    private String height;
-    private String weight;
+    private String height = "";
+    private String weight = "";
     private String email;
     private Integer birthDate;
-    private String nativePlace;
+    private String nativePlace = "";
 
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
