@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        tools:context="com.bhadrasoft.balarkconnection.RegistrationActivity">
-
+        android:orientation="vertical">
+        <!--First name-->
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/actvity_registration_input_firstname"
+                android:id="@+id/actvity_edit_profile_input_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_first_name"
@@ -26,29 +21,13 @@
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
-
+        <!--Middle name-->
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/actvity_registration_input_lastname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_lastname"
-                android:lines="1"
-                android:textSize="16sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_middlename"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/actvity_registration_input_middlename"
+                android:id="@+id/actvity_edit_profile_input_middlename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_middlename"
@@ -56,111 +35,144 @@
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
-
+        <!--Last name-->
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/actvity_registration_input_email"
+                android:id="@+id/actvity_edit_profile_input_lastname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_email"
+                android:hint="@string/hint_lastname"
                 android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
-
+        <!--Guatra-->
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_dob"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/actvity_registration_input_dob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_dob"
-                android:lines="1"
-                android:textSize="16sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/actvity_registration_input_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_password"
-                android:lines="1"
-                android:textSize="16sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_gautra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
-
-            <EditText
-                android:id="@+id/actvity_registration_input_gautra"
+                android:id="@+id/actvity_edit_profile_input_guatra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_gautra"
+                android:lines="1"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
+        <!--Native-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <RadioGroup  android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/actvity_edit_profile_input_native"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_native"
+                android:lines="1"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+        <!--Gender-->
+        <RadioGroup
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-            <RadioButton android:id="@+id/radio_male"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/male"/>
 
-            <RadioButton android:id="@+id/radio_female"
+            <RadioButton
+                android:id="@+id/edit_profile_radio_male"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/female"/>
+                android:layout_weight="1"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/edit_profile_radio_female"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/female" />
         </RadioGroup>
-
+        <!--Date-->
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/activity_registration_layout_pob"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
-
-            <EditText
-                android:id="@+id/actvity_registration_input_pob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-            android:hint="@string/hint_pob" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/activity_registration_btn_register"
+            <EditText
+                android:id="@+id/actvity_edit_profile_input_birthdate"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:text="@string/registration" />
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_birthdate"
+                android:lines="1"
+                android:textSize="16sp" />
 
-        </RelativeLayout>
+        </android.support.design.widget.TextInputLayout>
+        <!--Birth Place-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/actvity_edit_profile_input_birthplace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_birthPlace"
+                android:lines="1"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+        <!--Blood group-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/actvity_edit_profile_input_blood_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_blood_group"
+                android:lines="1"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+        <!--Height-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/actvity_edit_profile_input_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_height"
+                android:lines="1"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+        <!--Weight-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/actvity_edit_profile_input_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_weight"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+        <!--Save button-->
+        <Button
+            android:id="@+id/activity_edit_profile_button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
     </LinearLayout>
 
 </ScrollView>

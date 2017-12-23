@@ -8,4 +8,16 @@
     tools:context="com.bhadrasoft.balarkconnection.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/fragment_person"
+            android:name="com.bhadrasoft.balarkconnection.PersonListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
 </android.support.constraint.ConstraintLayout>

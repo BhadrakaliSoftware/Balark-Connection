@@ -79,6 +79,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void updateUI(FirebaseUser currentUser) {
 
+        if (currentUser != null) {
+            gotoMainActivity();
+        }
     }
 
     @Override
@@ -104,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void signInWithEmailAndPassword(String email, String password) {
-        mFirebaseAuth.signInWithEmailAndPassword(email,password)
+        mFirebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -134,7 +137,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
     private boolean isValidInput() {
-        return  true;
+        return true;
     }
 
     @Override

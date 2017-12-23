@@ -1,5 +1,6 @@
 package com.bhadrasoft.balarkconnection;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,8 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.bhadrasoft.balarkconnection.Utils.Constants;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        PersonListFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,8 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -69,8 +75,10 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_signout) {
+            FirebaseAuth.getInstance().signOut();
+            finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -92,7 +100,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }else if (id == R.id.nav_profile){
+        } else if (id == R.id.nav_profile) {
             gotoProfile();
         }
 
@@ -102,6 +110,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void gotoProfile() {
-
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivityForResult(intent, Constants.REQUEST_CODE_PROFILE);
     }
+
 }
