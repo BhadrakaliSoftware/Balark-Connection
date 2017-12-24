@@ -19,7 +19,7 @@ import java.util.List;
 public class MyPersonItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPersonItemRecyclerViewAdapter.ViewHolder> {
 
     private static final String STRING_BLANK = " ";
-    private final List<User> mValues;
+    public final List<User> mValues;
     private final OnListFragmentInteractionListener mListener;
 
     public MyPersonItemRecyclerViewAdapter(List<User> items, OnListFragmentInteractionListener listener) {
@@ -38,7 +38,7 @@ public class MyPersonItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPers
     public void onBindViewHolder(final ViewHolder holder, int position) {
         User user = mValues.get(position);
         holder.mItem = mValues.get(position);
-        holder.mPersonName.setText(user.getFirstName()+STRING_BLANK+user.getLastName());
+        holder.mPersonName.setText(user.getFirstName() + STRING_BLANK + user.getLastName());
         holder.mPersonStatus.setText(user.getNativePlace());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +47,7 @@ public class MyPersonItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPers
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-//                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
         });

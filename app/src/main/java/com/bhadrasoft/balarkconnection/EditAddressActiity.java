@@ -82,6 +82,7 @@ public class EditAddressActiity extends AppCompatActivity implements View.OnClic
         DatabaseReference addressReference = database.getReference().child("addresses");
 
         Map<String, Object> userAddress = new HashMap<>();
+/*
         userAddress.put(Address.STREET, etStreet.getText().toString());
         userAddress.put(Address.USER_ID, userId);
         userAddress.put(Address.AREA, etArea.getText().toString());
@@ -90,6 +91,7 @@ public class EditAddressActiity extends AppCompatActivity implements View.OnClic
         userAddress.put(Address.DISTRICT, etDisctrict.getText().toString());
         userAddress.put(Address.PINCODE, etPincode.getText().toString());
         userAddress.put(Address.STATE, etState.getText().toString());
+*/
 
         addressReference.child(userId).updateChildren(userAddress, this);
     }

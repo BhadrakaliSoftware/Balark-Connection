@@ -1,13 +1,12 @@
 package com.bhadrasoft.balarkconnection;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.bhadrasoft.balarkconnection.models.Occupation;
-import com.bhadrasoft.balarkconnection.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -64,11 +63,12 @@ public class EditOccupationActivity extends AppCompatActivity implements View.On
         DatabaseReference occupationReference = database.getReference().child("occupation");
 
         Map<String,Object> userOccupation = new HashMap<>();
+/*
         userOccupation.put(Occupation.JOB_TITLE, etJobTitle.getText().toString());
         userOccupation.put(Occupation.JOB_LOCATION, etLocation.getText().toString());
         userOccupation.put(Occupation.OCCUPATION_ID, userId);
         userOccupation.put(Occupation.USER_ID, userId);
-
+*/
         occupationReference.updateChildren(userOccupation, this);
 
     }
